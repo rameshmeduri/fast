@@ -105,6 +105,8 @@ export class Badge extends FASTElement {
     circular: boolean;
     color: string;
     fill: string;
+    // (undocumented)
+    generateBadgeStyle: () => string | undefined;
 }
 
 // @public
@@ -226,6 +228,7 @@ export class DataGrid extends FASTElement {
     static generateColumns: (row: object) => DataGridColumn[];
     // (undocumented)
     generateHeader: boolean;
+    rowItemTemplate: ViewTemplate;
     rowsData: object[];
     // @internal (undocumented)
     slottedHeaderElements: HTMLElement[];
