@@ -1,5 +1,6 @@
-type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never };
-type XOR<T, U> = T | U extends object ? (Without<T, U> & U) | (Without<U, T> & T) : T | U;
+import { MessageSystemUtilityAction } from "./message-system-utility-action";
+import { XOR } from "./type.utilities";
+import { ActionNotFound } from "./message-system-utility";
 
 export interface MetaKey {
     metaKey: true;
@@ -28,12 +29,7 @@ export interface SpecificKey {
 
 export type KeyConfig = XOR<SpecificKey, ModifierKey>;
 
-export interface ShortcutActionCallbackConfig {
-    /**
-     * The unique identifier
-     */
-    id: string;
-
+export interface ShortcutActionCallbackConfigSuccess {
     /**
      * The display name of the shortcut action
      */
@@ -45,12 +41,10 @@ export interface ShortcutActionCallbackConfig {
     keys: KeyConfig[];
 }
 
-export interface ShortcutActionConfig extends ShortcutActionCallbackConfig {
-    /**
-     * The action to take when the keycodes have been pressed
-     */
-    action: () => void;
-}
+export type ShortcutActionCallbackConfig = XOR<
+    ShortcutActionCallbackConfigSuccess,
+    ActionNotFound
+>;
 
 export function mapKeyboardEventToKeyConfig(e: KeyboardEvent): KeyConfig[] {
     const keys: KeyConfig[] = [];
@@ -89,15 +83,16 @@ export function mapKeyboardEventToKeyConfig(e: KeyboardEvent): KeyConfig[] {
     return keys;
 }
 
-export class ShortcutAction {
-    private action: (config: ShortcutActionCallbackConfig) => void;
-    public id: string;
+export class ShortcutAction extends MessageSystemUtilityAction<
+    ShortcutActionCallbackConfig,
+    KeyboardEvent
+> {
     public keys: KeyConfig[];
     public name: string;
 
-    constructor(config: ShortcutActionConfig) {
-        this.id = config.id;
-        this.action = config.action;
+    constructor(config) {
+        super(config);
+
         this.keys = config.keys;
         this.name = config.name;
     }
@@ -106,11 +101,10 @@ export class ShortcutAction {
      * Invokes the action
      */
     public invoke = (): void => {
-        this.action({
-            id: this.id,
+        this.getAction({
             keys: this.keys,
             name: this.name,
-        });
+        })();
     };
 
     /**

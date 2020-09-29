@@ -122,7 +122,7 @@ describe("Shortcuts", () => {
             actions,
         });
 
-        expect(shortcuts["registeredShortcutActions"]).toEqual(actions);
+        expect(shortcuts["registeredActions"]).toEqual(actions);
     });
     test("should send a message via the message system that shortcuts have been registered", () => {
         const postMessageCallback: any = jest.fn();
@@ -401,6 +401,16 @@ describe("Shortcuts", () => {
                 ],
                 action: shortcutAction,
             }),
+            new ShortcutAction({
+                id: "bat",
+                name: "Bat",
+                keys: [
+                    {
+                        value: "c",
+                    },
+                ],
+                action: shortcutAction,
+            }),
         ];
         const shortcuts = new Shortcuts({
             messageSystem,
@@ -425,6 +435,16 @@ describe("Shortcuts", () => {
                 keys: [
                     {
                         value: "d",
+                    },
+                ],
+                action: shortcutAction,
+            }),
+            new ShortcutAction({
+                id: "bat",
+                name: "Bat",
+                keys: [
+                    {
+                        value: "c",
                     },
                 ],
                 action: shortcutAction,

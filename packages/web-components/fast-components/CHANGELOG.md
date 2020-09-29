@@ -3,6 +3,53 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/Microsoft/fast/compare/@microsoft/fast-components@1.10.0...@microsoft/fast-components@1.11.0) (2020-09-28)
+
+
+### Bug Fixes
+
+* add skeleton, its definition, and its example to component explorer ([#3982](https://github.com/Microsoft/fast/issues/3982)) ([28c1021](https://github.com/Microsoft/fast/commit/28c10215148b457f64383e19543c57f0775925f7))
+* aria attributes for slider should have explicit values ([#3915](https://github.com/Microsoft/fast/issues/3915)) ([8335702](https://github.com/Microsoft/fast/commit/8335702e28295e216fb7c673457a09285a388be4))
+* badge example in component explorer ([#3901](https://github.com/Microsoft/fast/issues/3901)) ([8c34aa5](https://github.com/Microsoft/fast/commit/8c34aa50e2af0848c84147e24e0d55fc5f68ee64))
+* cursor should be disabledCursor when switch is readonly or disabled, otherwise pointer ([#3895](https://github.com/Microsoft/fast/issues/3895)) ([2ff5980](https://github.com/Microsoft/fast/commit/2ff5980c5915891f6d55149ed79042fcaddead8a))
+* ensure attributes are passed to text field template ([#3923](https://github.com/Microsoft/fast/issues/3923)) ([31afcd4](https://github.com/Microsoft/fast/commit/31afcd430d80fe2fb13d921b11b7ec92cf1a0bc8))
+* fixed typos ([#3934](https://github.com/Microsoft/fast/issues/3934)) ([f82468c](https://github.com/Microsoft/fast/commit/f82468c730165983d64e51ce74abaa8a27a8fb64))
+* re-export the progress ring component ([#3964](https://github.com/Microsoft/fast/issues/3964)) ([08da213](https://github.com/Microsoft/fast/commit/08da21361dd25b97f37e053b25e5361d2ee64142))
+
+
+### Features
+
+*  Anchored region reliability/perf improvements ([#3876](https://github.com/Microsoft/fast/issues/3876)) ([0e697f6](https://github.com/Microsoft/fast/commit/0e697f6ab6bd8f40894b9791d3eec8fe97a97d26))
+* add monaco adapter to component explorer site ([#3949](https://github.com/Microsoft/fast/issues/3949)) ([1aa994e](https://github.com/Microsoft/fast/commit/1aa994e986e52e8b1fab93e65665a1d4e56ae496))
+* add skeleton component ([#3877](https://github.com/Microsoft/fast/issues/3877)) ([aff7d30](https://github.com/Microsoft/fast/commit/aff7d3010574183744cf7105ae51a275c2c70a12))
+* add tooltip component ([#3549](https://github.com/Microsoft/fast/issues/3549)) ([cb7aa98](https://github.com/Microsoft/fast/commit/cb7aa98ccaaad00e9e86b4575ef011986c054d08))
+
+
+
+
+
+# [1.10.0](https://github.com/Microsoft/fast/compare/@microsoft/fast-components@1.9.0...@microsoft/fast-components@1.10.0) (2020-09-10)
+
+
+### Bug Fixes
+
+* add font-family inherit to controls for button and accordion item ([#3828](https://github.com/Microsoft/fast/issues/3828)) ([58de050](https://github.com/Microsoft/fast/commit/58de0502af0250abc4cf53f7acb031562be3bb89))
+* center the indeterminate indicator inside the checkbox ([#3829](https://github.com/Microsoft/fast/issues/3829)) ([b2361f2](https://github.com/Microsoft/fast/commit/b2361f240be93b2bebb24e00d04b9ca283e4eece)), closes [#3796](https://github.com/Microsoft/fast/issues/3796)
+* density type is a number ([#3841](https://github.com/Microsoft/fast/issues/3841)) ([3ab278c](https://github.com/Microsoft/fast/commit/3ab278cf947d7fc895e8d4a968245799c300972b))
+* mirror the arrow glyph of tree-item for rtl resting and expanded ([#3831](https://github.com/Microsoft/fast/issues/3831)) ([3bf7e1b](https://github.com/Microsoft/fast/commit/3bf7e1b70089a4e916a8c7bfd08b011b76129217))
+* update glyphs to use currentcolor ([#3811](https://github.com/Microsoft/fast/issues/3811)) ([ce86a0d](https://github.com/Microsoft/fast/commit/ce86a0d2b0aa44e493d21e0a80836377703534f9)), closes [#2260](https://github.com/Microsoft/fast/issues/2260)
+* update the padding to start and end slot on tabs to add align self ([#3837](https://github.com/Microsoft/fast/issues/3837)) ([96a58a1](https://github.com/Microsoft/fast/commit/96a58a1cd702ab0a41ded33da82c285f314f7f49))
+* use margin-inline-start to fix mis-aligned thumb on slider in rtl and vertical orientation ([#3830](https://github.com/Microsoft/fast/issues/3830)) ([ff6b262](https://github.com/Microsoft/fast/commit/ff6b262f0cde51b441e1a3368fbeeca4b59885bb))
+
+
+### Features
+
+* add hover state for expand collapse button in tree-item ([#3794](https://github.com/Microsoft/fast/issues/3794)) ([9fe1133](https://github.com/Microsoft/fast/commit/9fe113383eff907af6ca5ebd385d061c5df6be30))
+
+
+
+
+
 # [1.9.0](https://github.com/Microsoft/fast/compare/@microsoft/fast-components@1.8.0...@microsoft/fast-components@1.9.0) (2020-08-27)
 
 

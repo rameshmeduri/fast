@@ -47,10 +47,17 @@ export class Tabs extends FASTElement {
      */
     @attr
     public activeid: string;
+    /**
+     * @internal
+     */
     public activeidChanged(): void {
-        if (this.tabIds) {
-            this.activeTabIndex = this.tabIds.indexOf(this.activeid);
-            this.setComponent();
+        if (
+            this.$fastController.isConnected &&
+            this.tabs.length <= this.tabpanels.length
+        ) {
+            this.setTabs();
+            this.setTabPanels();
+            this.handleActiveIndicatorPosition();
         }
     }
 

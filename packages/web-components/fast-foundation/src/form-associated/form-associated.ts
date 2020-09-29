@@ -83,6 +83,7 @@ declare let ElementInternals: {
 
 interface HTMLElement {
     attachInternals?(): ElementInternals;
+    click(): void;
 }
 
 const proxySlotName = "form-associated-proxy";
@@ -212,6 +213,7 @@ export abstract class FormAssociated<
         }
 
         this.setFormValue(this.value);
+        this.validate();
     }
 
     /**
@@ -318,12 +320,13 @@ export abstract class FormAssociated<
      * They must be sure to invoke `super.requiredChanged(previous, next)` to ensure
      * proper functioning of `FormAssociated`
      */
-    protected requiredChanged(): void {
+    protected requiredChanged(prev: boolean, next: boolean): void {
         if (this.proxy instanceof HTMLElement) {
             this.proxy.required = this.required;
         }
 
         DOM.queueUpdate(() => this.classList.toggle("required", this.required));
+        this.validate();
     }
 
     /**
@@ -472,6 +475,16 @@ export abstract class FormAssociated<
     }
 
     /**
+     * Sets the validity of the custom element. By default this uses the proxy element to determine
+     * validity, but this can be extended or replaced in implementation.
+     */
+    protected validate() {
+        if (this.proxy instanceof HTMLElement) {
+            this.setValidity(this.proxy.validity, this.proxy.validationMessage);
+        }
+    }
+
+    /**
      * Associates the provided value (and optional state) with the parent form.
      * @param value - The value to set
      * @param state - The state object provided to during session restores and when autofilling.
@@ -489,10 +502,12 @@ export abstract class FormAssociated<
         switch (e.keyCode) {
             case keyCodeEnter:
                 if (this.form instanceof HTMLFormElement) {
-                    // Match native behavior
-                    this.form.submit();
+                    // Implicit submission
+                    const defaultButton = this.form.querySelector(
+                        "[type=submit]"
+                    ) as HTMLElement | null;
+                    defaultButton?.click();
                 }
-
                 break;
         }
     }
