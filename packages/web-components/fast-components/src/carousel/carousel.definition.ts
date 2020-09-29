@@ -34,6 +34,14 @@ export const fastCarouselDefinition: WebComponentDefinition = {
                     description:
                         "The pattern attribute controlling if the carousel uses the Tabbed or Basic ARIA pattern",
                     type: DataType.string,
+                    values: [
+                        {
+                            name: "basic",
+                        },
+                        {
+                            name: "tabbed",
+                        },
+                    ],
                     default: "tabbed",
                     required: false,
                 },
